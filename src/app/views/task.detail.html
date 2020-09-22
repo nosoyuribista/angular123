@@ -1,0 +1,40 @@
+<div class="col-md-12">
+	<div class="loader" *ngIf="loading == 'show'">
+				<img src="assets/img/loader.gif">
+			</div>
+	<div class="col-md-12">
+		<h3>{{task.title}}</h3>
+		<div class="panel panel-default ">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					Tarea creada por <strong>{{task.user.name + task.user.surname}}</strong>
+					El {{task.createdAt.timestamp | generateDate}}
+				</h3>
+			</div>
+			<div class="panel-body">
+				{{task.description}}
+			</div>
+		</div>
+		
+<a href="#myModal" class="btn btn-lg btn-danger" data-toggle="modal">Borrar</a>
+    
+<!-- Modal HTML -->
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Estas seguro?</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="text-secondary">Vas a borrar la tarea, estas seguro?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-danger" (click)="deleteTask(task.id)" data-dismiss="modal">Si, quiero borrarla.</button>
+            </div>
+        </div>
+    </div>
+</div>
+	</div>
+</div>
